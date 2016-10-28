@@ -1,1 +1,1 @@
-# ckanext-swagger-console
+# ckanext-swaggerconsole
