@@ -1,2 +1,3 @@
 *.pyc
+*.dump
 ckanext_swaggerconsole.egg-info/

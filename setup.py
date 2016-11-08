@@ -25,6 +25,6 @@ setup(
     entry_points='''
         [ckan.plugins]
         # Add plugins here, e.g.
-        # myplugin=ckanext.swaggerconsole.plugin:PluginClass
+        swagger_console=ckanext.swaggerconsole.plugin:SwaggerConsolePlugin
     ''',
 )
