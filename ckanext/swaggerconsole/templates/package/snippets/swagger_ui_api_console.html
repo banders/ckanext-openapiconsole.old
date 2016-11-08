@@ -6,7 +6,15 @@
 
 #}
 
+{% if pkg.type == "WebService" %}
+
 <h3>API Console</h3>
-<div id="api-console">
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Swagger URL") }}</th>
+  <td class="dataset-details">{{ pkg.swagger_url }}</td>
+</tr>
+
+<div class="module-content ckanext-datapreview">
   <iframe src="/bcdc_swagger_console.html" width="100%" height="800" style="border: 1px solid #eeeeee"></iframe>
 </div>
+{% endif %}

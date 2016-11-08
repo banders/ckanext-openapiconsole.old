@@ -1,0 +1,7 @@
+{% ckan_extends %}
+
+{% block package_basic_fields_custom %}
+  <div class="form-horizontal">
+    {{ form.input('swagger_url', label=_('Swagger URL'), id='field-swagger-url', placeholder=_('Specify a URL to a swagger .json file'), value=data.swagger_url, error=errors.swagger_url, classes=['control-full']) }}
+  </div>
+{% endblock %}
