@@ -3,7 +3,8 @@ import ckan.plugins as p
 log = __import__('logging').getLogger(__name__)
 
 class InitDB(p.toolkit.CkanCommand):
-    """Initialise the database tables dedidated to the openapi_console
+    
+    """Create the database table needed by the openapi_console plugin
     """
     summary = __doc__.split('\n')[0]
     usage = __doc__
