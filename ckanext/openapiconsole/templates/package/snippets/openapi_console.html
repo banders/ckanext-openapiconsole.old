@@ -6,15 +6,14 @@
 
 #}
 
-{% if pkg.type == "WebService" %}
+{# At the present time, assume there is only one openapi spec url. #}
+{% set openApiSpecUrl = h.get_openapi_specs_for_package(pkg.id)[0] or None %}
+{% if openApiSpecUrl %}
 
 <h3>API Console</h3>
-<tr>
-  <th scope="row" class="dataset-label">{{ _("OpenAPI Specification URL") }}</th>
-  <td class="dataset-details">{{ pkg.openapi_spec_url }}</td>
-</tr>
 
-<div class="module-content ckanext-datapreview">
-  <iframe src="/bcdc_openapi_console.html" width="100%" height="800" style="border: 1px solid #eeeeee"></iframe>
+<div>
+  <iframe src="/bcdc_openapi_console.html?url={{openApiSpecUrl.openapi_spec_url}}" width="100%" height="800" style="border: 1px solid #eeeeee"></iframe>
 </div>
+
 {% endif %}

@@ -32,7 +32,7 @@
   {{ super() }}
 
   {% block api_view %}
-    {% snippet "package/snippets/swagger_ui_api_console.html", pkg=pkg %}
+    {% snippet "package/snippets/openapi_console.html", pkg=pkg %}
   {% endblock %}
 
 {% endblock %}

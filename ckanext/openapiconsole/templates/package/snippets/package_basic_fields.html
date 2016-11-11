@@ -1,7 +1,12 @@
 {% ckan_extends %}
 
 {% block package_basic_fields_custom %}
+
+  {# At the present time, only allow users to specify one openapi spec url. #}
+  {% set openApiSpecUrl = h.get_openapi_specs_for_package(data.id)[0] or None %}
+
   <div class="form-horizontal">
-    {{ form.input('swagger_url', label=_('Swagger URL'), id='field-swagger-url', placeholder=_('Specify a URL to a swagger .json file'), value=data.swagger_url, error=errors.swagger_url, classes=['control-full']) }}
+    {{ form.input('openapi_spec_url', label=_('OpenAPI Specification URL'), id='field-openapi-spec-url', placeholder=_('Specify a URL to an OpenAPI Specification'), value=openApiSpecUrl.openapi_spec_url, error=errors.openapi_spec_url, classes=['control-full']) }}
   </div>
+
 {% endblock %}

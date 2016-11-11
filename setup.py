@@ -24,7 +24,9 @@ setup(
     ],
     entry_points='''
         [ckan.plugins]
-        # Add plugins here, e.g.
         openapi_console=ckanext.openapiconsole.plugin:OpenApiConsolePlugin
+
+        [paste.paster_command]        
+        initdb = ckanext.openapiconsole.commands:InitDB
     ''',
 )
