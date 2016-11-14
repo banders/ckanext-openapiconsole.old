@@ -36,11 +36,9 @@ class OpenApiSpecUrl(Base):
     '''Returns the OpenApiSpecUrls for the given package. (may be more than one)'''
     @classmethod
     def get_for_package(cls, package_id):
-        print "looking up rec for package_id: '"+package_id+"'"
         matches = model.Session.query(cls) \
             .filter(cls.package_id == package_id) \
             .all()
-        print "found "+str(len(matches))+" matches"
         return matches
 
     '''Returns the OpenApiSpecUrl with the given id. (never returns more than one)'''
@@ -62,13 +60,12 @@ class OpenApiSpecUrl(Base):
 
     @classmethod
     def create(cls, package_id, openapi_spec_url):
+      if openapi_spec_url:
         """Adds a new openapi specification url for the given package"""
-        values = {
-                   "package_id": package_id,
-                   "openapi_spec_url": openapi_spec_url
-                 }
-        print "adding rec: "+str(values)
-        model.Session.add(OpenApiSpecUrl(values))
+        item = OpenApiSpecUrl()
+        item.package_id = package_id
+        item.openapi_spec_url = openapi_spec_url
+        model.Session.add(item)
 
     @classmethod
     def update(cls, package_id, openapi_spec_url):
@@ -77,7 +74,6 @@ class OpenApiSpecUrl(Base):
         values = {
                    "openapi_spec_url": openapi_spec_url
                  }
-        print "updating rec with package_id: "+str(package_id)+" with: "+str(values)
         model.Session.query(cls) \
             .filter(cls.package_id == package_id) \
             .update(values)
