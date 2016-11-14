@@ -1,4 +1,4 @@
-# ckanext-swaggerconsole
+# ckanext-openapiconsole
 
 Installation:
 
